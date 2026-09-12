@@ -23,3 +23,5 @@ If I used AMD's provided IP for the FIFO, I would only need the following handwr
 - `axi_lite_bsm.sv` and `tb_counter_vivado.sv`
 
 For this example, we need both `axi_lite_regs.sv` and `capture_regs.sv` because `axi_lite_regs.sv` handles bus communication whereas `capture_regs.sv` handles register behavior. Keeping them separate makes the AXI adapter reusable and keeps AXI handshake details out of the capture-control logic.
+
+Improvements to this project include adding scatter-gather support and using SystemRDL instead of `capture_regs.sv` to unify all register generation.
