@@ -14,7 +14,9 @@
 #include "xil_printf.h"
 #include "xstatus.h"
 #include "xiltimer.h"
+
 #include "capture_config.h"
+#include "dummy_test.h"
 
 /* Capture register offsets; keep consistent with capture_regs.sv. */
 #define CAP_COMMAND 0x00U
@@ -200,6 +202,9 @@ int main(void)
     const UINTPTR buffer_address = (UINTPTR)rx_buffer;
 
     init_platform();
+    if (dummy_test((uintptr_t)XPAR_DUMMY_BD_0_BASEADDR) != 0) {
+        return 1;
+    }
     xil_printf("Counter/FIFO/DMA capture test\r\n");
     xil_printf("Capture registers = 0x%08x\r\n", (unsigned)CAPTURE_BASEADDR);
     xil_printf("DMA registers = 0x%08x\r\n", (unsigned)CAPTURE_DMA_BASEADDR);

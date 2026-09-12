@@ -1,0 +1,21 @@
+addrmap dummy_regs {                        // Define the register map implemented by the dummy peripheral.
+    default regwidth = 32;                  // Make each register occupy one 32-bit word.
+    default accesswidth = 32;               // Access registers using 32-bit software transactions.
+
+    reg {                                   // Begin the software-controlled register.
+        field {                             // Begin the single software-controlled bit.
+            sw = rw;                        // Allow software to read and write this bit.
+            hw = r;                         // Expose this bit's stored value to the hardware.
+            reset = 0;                      // Clear this bit when the register block is reset.
+        } sw_bit[0:0];                      // Place the software-controlled bit at bit zero.
+    } control @ 0x00;                       // Put the control register at byte offset zero.
+
+    reg {                                   // Begin the hardware-controlled status register.
+        field {                             // Begin the single hardware-controlled bit.
+            sw = r;                         // Allow software to read this bit but prevent software updates.
+            hw = w;                         // Allow hardware to supply this bit's next value.
+            we = true;                      // Generate a hardware write-enable input and registered storage.
+            reset = 0;                      // Clear this bit when the register block is reset.
+        } hw_bit[0:0];                      // Place the hardware-controlled bit at bit zero.
+    } status @ 0x04;                        // Put the status register at byte offset four.
+};

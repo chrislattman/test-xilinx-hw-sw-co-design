@@ -60,11 +60,11 @@ module capture_bd #(                                    // Begin the block-desig
     input wire m_axis_tready                            // Receive the DMA's readiness to accept the offered stream word.
 );                                                      // Finish the wrapper's external port list.
 
-    capture_peripheral #(                              // Instantiate the existing SystemVerilog peripheral inside this Verilog wrapper.
+    capture_peripheral #(                               // Instantiate the existing SystemVerilog peripheral inside this Verilog wrapper.
         .FIFO_DEPTH(FIFO_DEPTH)                         // Pass the wrapper's FIFO capacity to the existing peripheral.
-    ) u_capture(                                       // Name the enclosed peripheral instance u_capture and begin its port connections.
+    ) u_capture(                                        // Name the enclosed peripheral instance u_capture and begin its port connections.
         .s_axi_aclk(s_axi_aclk),                        // Forward the shared clock to the peripheral.
-        .s_axi_aresetn(s_axi_aresetn),                   // Forward the active-low reset to the peripheral.
+        .s_axi_aresetn(s_axi_aresetn),                  // Forward the active-low reset to the peripheral.
         .s_axi_awaddr(s_axi_awaddr),                    // Forward the write-register byte offset to the peripheral.
         .s_axi_awprot(s_axi_awprot),                    // Forward the write-access attributes to the peripheral.
         .s_axi_awvalid(s_axi_awvalid),                  // Forward the master's write-address validity to the peripheral.
@@ -89,5 +89,5 @@ module capture_bd #(                                    // Begin the block-desig
         .m_axis_tlast(m_axis_tlast),                    // Forward the peripheral's outgoing final-word marker toward the DMA.
         .m_axis_tvalid(m_axis_tvalid),                  // Forward the peripheral's outgoing stream validity toward the DMA.
         .m_axis_tready(m_axis_tready)                   // Forward the DMA's readiness back to the peripheral.
-    );                                                  // Finish the enclosed peripheral's port connections.
+    );
 endmodule

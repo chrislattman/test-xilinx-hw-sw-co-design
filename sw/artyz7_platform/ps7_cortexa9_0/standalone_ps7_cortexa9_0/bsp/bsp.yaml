@@ -157,6 +157,7 @@ drv_info:
     ip_name: axi_dma
     path: /home/chris/opt/Xilinx/2025.2/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/axidma_v9_20
   capture_bd_0: None
+  dummy_bd_0: None
   ps7_afi_0: None
   ps7_afi_1: None
   ps7_afi_2: None

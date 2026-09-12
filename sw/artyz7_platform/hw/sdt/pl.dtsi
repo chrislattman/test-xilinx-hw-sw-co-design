@@ -76,5 +76,15 @@
 			clocks = <&clkc 15>;
 			xlnx,name = "capture_bd_0";
 		};
+		dummy_bd_0: dummy_bd@43c10000 {
+			compatible = "xlnx,dummy-bd-1.0";
+			status = "okay";
+			clock-names = "s_axi_aclk";
+			xlnx,ip-name = "dummy_bd";
+			xlnx,edk-iptype = "PERIPHERAL";
+			reg = <0x43c10000 0x1000>;
+			clocks = <&clkc 15>;
+			xlnx,name = "dummy_bd_0";
+		};
 	};
 };

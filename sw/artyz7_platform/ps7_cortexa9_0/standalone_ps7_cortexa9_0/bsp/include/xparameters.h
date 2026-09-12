@@ -348,6 +348,10 @@
 #define XPAR_CAPTURE_BD_0_BASEADDR 0x43c00000
 #define XPAR_CAPTURE_BD_0_HIGHADDR 0x43c00fff
 
+/* Definitions for peripheral DUMMY_BD_0 */
+#define XPAR_DUMMY_BD_0_BASEADDR 0x43c10000
+#define XPAR_DUMMY_BD_0_HIGHADDR 0x43c10fff
+
 /*  BOARD definition */
 #define XPS_BOARD_ARTY-Z7-20
 

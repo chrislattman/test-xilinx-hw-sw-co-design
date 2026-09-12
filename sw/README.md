@@ -1,3 +1,3 @@
-# HW/SW co-design
+# Software Design
 
-Read the READMEs of each subfolder to understand this project.
+The software in this project is a bare metal C application that arms the DMA and reads from memory after it confirms via AXI4-Lite that there is in fact data to read. It prints out the results of tests it performs. It also writes to a dummy peripheral in the PL.

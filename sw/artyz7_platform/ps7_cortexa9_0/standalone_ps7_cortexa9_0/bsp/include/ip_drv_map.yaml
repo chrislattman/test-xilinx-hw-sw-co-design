@@ -4,6 +4,9 @@ axi_dma_0:
 capture_bd_0:
 - capture_bd
 - None
+dummy_bd_0:
+- dummy_bd
+- None
 ps7_afi_0:
 - ps7_afi
 - None

@@ -1,5 +1,7 @@
 # FPGA Design
 
+![](bd.png)
+
 This project uses a 32-bit counter to feed a synchronous FIFO, both written in SystemVerilog. The FIFO is read by AXI DMA. Each communicate to its "neighbor" via AXI4-Stream. An ILA is inserted to debug the stream connection between the FIFO and the DMA.
 
 In the block design:
@@ -19,3 +21,5 @@ If I used AMD's provided IP for the FIFO, I would only need the following handwr
 - `counter_source.sv` and `tb_counter_source.sv`
 - `tb_counter_fifo.sv`
 - `axi_lite_bsm.sv` and `tb_counter_vivado.sv`
+
+For this example, we need both `axi_lite_regs.sv` and `capture_regs.sv` because `axi_lite_regs.sv` handles bus communication whereas `capture_regs.sv` handles register behavior. Keeping them separate makes the AXI adapter reusable and keeps AXI handshake details out of the capture-control logic.

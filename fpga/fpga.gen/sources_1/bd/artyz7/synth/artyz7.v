@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-//Date        : Fri Sep 11 03:05:05 2026
+//Date        : Sat Sep 12 02:05:40 2026
 //Host        : chris-B729 running 64-bit Ubuntu 26.04.1 LTS
 //Command     : generate_target artyz7.bd
 //Design      : artyz7
@@ -10,7 +10,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "artyz7,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=artyz7,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=7,numReposBlks=7,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=4,da_ps7_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "artyz7.hwdef" *) 
+(* CORE_GENERATION_INFO = "artyz7,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=artyz7,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=7,numReposBlks=7,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=4,da_ps7_cnt=1,synth_mode=None}" *) (* HW_HANDOFF = "artyz7.hwdef" *) 
 module artyz7
    (DDR_addr,
     DDR_ba,
@@ -111,6 +111,25 @@ module artyz7
   wire axi_smc_0_M01_AXI_WREADY;
   wire [3:0]axi_smc_0_M01_AXI_WSTRB;
   wire axi_smc_0_M01_AXI_WVALID;
+  wire [11:0]axi_smc_0_M02_AXI_ARADDR;
+  wire [2:0]axi_smc_0_M02_AXI_ARPROT;
+  wire axi_smc_0_M02_AXI_ARREADY;
+  wire axi_smc_0_M02_AXI_ARVALID;
+  wire [11:0]axi_smc_0_M02_AXI_AWADDR;
+  wire [2:0]axi_smc_0_M02_AXI_AWPROT;
+  wire axi_smc_0_M02_AXI_AWREADY;
+  wire axi_smc_0_M02_AXI_AWVALID;
+  wire axi_smc_0_M02_AXI_BREADY;
+  wire [1:0]axi_smc_0_M02_AXI_BRESP;
+  wire axi_smc_0_M02_AXI_BVALID;
+  wire [31:0]axi_smc_0_M02_AXI_RDATA;
+  wire axi_smc_0_M02_AXI_RREADY;
+  wire [1:0]axi_smc_0_M02_AXI_RRESP;
+  wire axi_smc_0_M02_AXI_RVALID;
+  wire [31:0]axi_smc_0_M02_AXI_WDATA;
+  wire axi_smc_0_M02_AXI_WREADY;
+  wire [3:0]axi_smc_0_M02_AXI_WSTRB;
+  wire axi_smc_0_M02_AXI_WVALID;
   wire [9:0]axi_smc_M00_AXI_ARADDR;
   wire axi_smc_M00_AXI_ARREADY;
   wire axi_smc_M00_AXI_ARVALID;
@@ -127,11 +146,11 @@ module artyz7
   wire [31:0]axi_smc_M00_AXI_WDATA;
   wire axi_smc_M00_AXI_WREADY;
   wire axi_smc_M00_AXI_WVALID;
-  (* CONN_BUS_INFO = "capture_bd_0_M_AXIS xilinx.com:interface:axis:1.0 None TDATA" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [31:0]capture_bd_0_M_AXIS_TDATA;
-  (* CONN_BUS_INFO = "capture_bd_0_M_AXIS xilinx.com:interface:axis:1.0 None TKEEP" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire [3:0]capture_bd_0_M_AXIS_TKEEP;
-  (* CONN_BUS_INFO = "capture_bd_0_M_AXIS xilinx.com:interface:axis:1.0 None TLAST" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire capture_bd_0_M_AXIS_TLAST;
-  (* CONN_BUS_INFO = "capture_bd_0_M_AXIS xilinx.com:interface:axis:1.0 None TREADY" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire capture_bd_0_M_AXIS_TREADY;
-  (* CONN_BUS_INFO = "capture_bd_0_M_AXIS xilinx.com:interface:axis:1.0 None TVALID" *) (* DEBUG = "true" *) (* MARK_DEBUG *) wire capture_bd_0_M_AXIS_TVALID;
+  wire [31:0]capture_bd_0_M_AXIS_TDATA;
+  wire [3:0]capture_bd_0_M_AXIS_TKEEP;
+  wire capture_bd_0_M_AXIS_TLAST;
+  wire capture_bd_0_M_AXIS_TREADY;
+  wire capture_bd_0_M_AXIS_TVALID;
   wire processing_system7_0_FCLK_CLK0;
   wire processing_system7_0_FCLK_RESET0_N;
   wire [31:0]processing_system7_0_M_AXI_GP0_ARADDR;
@@ -269,6 +288,25 @@ module artyz7
         .M01_AXI_wready(axi_smc_0_M01_AXI_WREADY),
         .M01_AXI_wstrb(axi_smc_0_M01_AXI_WSTRB),
         .M01_AXI_wvalid(axi_smc_0_M01_AXI_WVALID),
+        .M02_AXI_araddr(axi_smc_0_M02_AXI_ARADDR),
+        .M02_AXI_arprot(axi_smc_0_M02_AXI_ARPROT),
+        .M02_AXI_arready(axi_smc_0_M02_AXI_ARREADY),
+        .M02_AXI_arvalid(axi_smc_0_M02_AXI_ARVALID),
+        .M02_AXI_awaddr(axi_smc_0_M02_AXI_AWADDR),
+        .M02_AXI_awprot(axi_smc_0_M02_AXI_AWPROT),
+        .M02_AXI_awready(axi_smc_0_M02_AXI_AWREADY),
+        .M02_AXI_awvalid(axi_smc_0_M02_AXI_AWVALID),
+        .M02_AXI_bready(axi_smc_0_M02_AXI_BREADY),
+        .M02_AXI_bresp(axi_smc_0_M02_AXI_BRESP),
+        .M02_AXI_bvalid(axi_smc_0_M02_AXI_BVALID),
+        .M02_AXI_rdata(axi_smc_0_M02_AXI_RDATA),
+        .M02_AXI_rready(axi_smc_0_M02_AXI_RREADY),
+        .M02_AXI_rresp(axi_smc_0_M02_AXI_RRESP),
+        .M02_AXI_rvalid(axi_smc_0_M02_AXI_RVALID),
+        .M02_AXI_wdata(axi_smc_0_M02_AXI_WDATA),
+        .M02_AXI_wready(axi_smc_0_M02_AXI_WREADY),
+        .M02_AXI_wstrb(axi_smc_0_M02_AXI_WSTRB),
+        .M02_AXI_wvalid(axi_smc_0_M02_AXI_WVALID),
         .S00_AXI_araddr(processing_system7_0_M_AXI_GP0_ARADDR),
         .S00_AXI_arburst(processing_system7_0_M_AXI_GP0_ARBURST),
         .S00_AXI_arcache(processing_system7_0_M_AXI_GP0_ARCACHE),
@@ -375,6 +413,28 @@ module artyz7
         .s_axi_wready(axi_smc_0_M01_AXI_WREADY),
         .s_axi_wstrb(axi_smc_0_M01_AXI_WSTRB),
         .s_axi_wvalid(axi_smc_0_M01_AXI_WVALID));
+  artyz7_dummy_bd_0_0 dummy_bd_0
+       (.s_axi_aclk(processing_system7_0_FCLK_CLK0),
+        .s_axi_araddr(axi_smc_0_M02_AXI_ARADDR),
+        .s_axi_aresetn(rst_ps7_0_100M_peripheral_aresetn),
+        .s_axi_arprot(axi_smc_0_M02_AXI_ARPROT),
+        .s_axi_arready(axi_smc_0_M02_AXI_ARREADY),
+        .s_axi_arvalid(axi_smc_0_M02_AXI_ARVALID),
+        .s_axi_awaddr(axi_smc_0_M02_AXI_AWADDR),
+        .s_axi_awprot(axi_smc_0_M02_AXI_AWPROT),
+        .s_axi_awready(axi_smc_0_M02_AXI_AWREADY),
+        .s_axi_awvalid(axi_smc_0_M02_AXI_AWVALID),
+        .s_axi_bready(axi_smc_0_M02_AXI_BREADY),
+        .s_axi_bresp(axi_smc_0_M02_AXI_BRESP),
+        .s_axi_bvalid(axi_smc_0_M02_AXI_BVALID),
+        .s_axi_rdata(axi_smc_0_M02_AXI_RDATA),
+        .s_axi_rready(axi_smc_0_M02_AXI_RREADY),
+        .s_axi_rresp(axi_smc_0_M02_AXI_RRESP),
+        .s_axi_rvalid(axi_smc_0_M02_AXI_RVALID),
+        .s_axi_wdata(axi_smc_0_M02_AXI_WDATA),
+        .s_axi_wready(axi_smc_0_M02_AXI_WREADY),
+        .s_axi_wstrb(axi_smc_0_M02_AXI_WSTRB),
+        .s_axi_wvalid(axi_smc_0_M02_AXI_WVALID));
   artyz7_processing_system7_0_0 processing_system7_0
        (.DDR_Addr(DDR_addr),
         .DDR_BankAddr(DDR_ba),
@@ -480,12 +540,4 @@ module artyz7
         .mb_debug_sys_rst(1'b0),
         .peripheral_aresetn(rst_ps7_0_100M_peripheral_aresetn),
         .slowest_sync_clk(processing_system7_0_FCLK_CLK0));
-  artyz7_system_ila_0_0 system_ila_0
-       (.SLOT_0_AXIS_tdata(capture_bd_0_M_AXIS_TDATA),
-        .SLOT_0_AXIS_tkeep(capture_bd_0_M_AXIS_TKEEP),
-        .SLOT_0_AXIS_tlast(capture_bd_0_M_AXIS_TLAST),
-        .SLOT_0_AXIS_tready(capture_bd_0_M_AXIS_TREADY),
-        .SLOT_0_AXIS_tvalid(capture_bd_0_M_AXIS_TVALID),
-        .clk(processing_system7_0_FCLK_CLK0),
-        .resetn(rst_ps7_0_100M_peripheral_aresetn));
 endmodule
